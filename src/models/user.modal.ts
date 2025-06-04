@@ -37,6 +37,10 @@ const userSchema = new mongoose.Schema(
       type: Number,
       select: false,
     },
+    canUpdatePassword: {
+      type: Boolean,
+      default: false,
+    },
     forgotPasswordCode: {
       type: String,
       select: false,
