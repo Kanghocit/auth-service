@@ -1,6 +1,6 @@
 import Joi from "joi";
 
-export const validate = Joi.object({
+export const validateRegister = Joi.object({
   email: Joi.string()
     .email({ tlds: { allow: ["com", "net"] } })
     .required()
@@ -15,4 +15,12 @@ export const validate = Joi.object({
         "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-=\\[\\]{};'\"\\|,.<>/?]).{8,}$"
       )
     ),
+});
+export const validateLogin = Joi.object({
+  email: Joi.string()
+    .email({ tlds: { allow: ["com", "net"] } })
+    .required()
+    .min(5)
+    .max(100),
+  password: Joi.string().required().min(8).max(100),
 });
